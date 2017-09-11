@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>LBWS_Reports</display-name>
+  <display-name> MongoDBWebapp </display-name>
+  <context-param>
+    <param-name>MONGODB_USER</param-name>
+    <param-value>ken-admin</param-value>
+  </context-param>
+  <context-param>
+    <param-name>MONGODB_PASS</param-name>
+    <param-value>kent@#14</param-value>
+  </context-param>
+  <context-param>
+    <param-name>MONGODB_AUTHDB</param-name>
+    <param-value>admin</param-value>
+  </context-param>
+  <context-param>
+    <param-name>MONGODB_HOST</param-name>
+    <param-value>35.154.204.175</param-value>
+  </context-param>
+  <context-param>
+    <param-name>MONGODB_PORT</param-name>
+    <param-value> 27017 </param-value>
+  </context-param>
+  <listener>
+    <listener-class>
+	   	com.kentropy.mongodb.MongoConfigListener
+	    </listener-class>
+  </listener>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CSVExport</display-name>
+    <servlet-name>CSVExport</servlet-name>
+    <servlet-class>com.kentropy.mongodb.CSVExport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CSVExport</servlet-name>
+    <url-pattern>/CSVExport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Authenticate</display-name>
+    <servlet-name>Authenticate</servlet-name>
+    <servlet-class>com.kentropy.auth.Authenticate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Authenticate</servlet-name>
+    <url-pattern>/Authenticate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>test</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>com.kentropy.auth.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+</web-app>

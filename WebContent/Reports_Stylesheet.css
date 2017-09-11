@@ -1,0 +1,13 @@
+
+	table, th,td
+			{ 	
+				font-family:verdana; 
+				font-size:10pt;
+				text-align:center; 
+				border-collapse:collapse; 
+				border:1px solid black; 
+				padding:3px;
+				align:center;
+			}	
+			
+	

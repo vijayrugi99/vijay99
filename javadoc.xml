@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="WebContent/WEB-INF/lib/java-json.jar;C:\Users\pp\Desktop\Vijay\servlet-api-3.0.jar;C:\Users\pp\Desktop\Vijay\JAR FIles\jsp-api-2.1.jar\jsp-api-2.1.jar;WebContent/WEB-INF/lib/mongo-java-driver-3.2.2.jar;WebContent/WEB-INF/lib/mongodb-driver-3.2.2.jar;ImportedClasses;WebContent/WEB-INF/lib/jackson-all-1.9.0.jar;C:\Users\pp\Desktop\Vijay\JAR FIles\json-simple-1.1.jar;C:\Users\pp\Desktop\Vijay\JAR FIles\javacsv.jar;C:\Users\pp\Desktop\Vijay\mongo-java-driver-2.12.0-rc3.jar;C:\Users\pp\Desktop\Vijay\JAR FIles\mongodb-driver-3.2.2.jar" destdir="D:\Vj" doctitle="Classification" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.kentropy.scheduler,com.kentropy.integration,com.kentropy.mongo,com.kentropy.mongodb,com.kentropy.kmc.bean" source="1.6" sourcefiles="src/Test.java" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

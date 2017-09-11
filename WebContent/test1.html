@@ -1,0 +1,376 @@
+ 
+
+
+<b>No of LBWS For facility:</b>
+<div id="FacilityListDiv">
+
+</div>
+<hr/>
+<b>No Completed:</b>
+<div id="BabyDiv">
+0
+</div>
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js" ></script>
+<script src="survey.min.js"></script>
+<link href="survey.css" rel="stylesheet"/>
+<hr/>
+<div id= "mySurveyJSName"  style="background-color:#f0f0f0;"></div>
+<script>
+var listsurvey={
+ completeText: "Complete",
+ completedHtml: "Completed !",
+ pages: [
+  {
+   name: "page1",
+   questions: [
+    {
+     type: "html",
+     name: "question1",
+     html: "Facility:Test Facility\n\n"
+    },
+    {
+     type: "dropdown",
+     name: "nm",
+     title: "Nurse Mentor",
+     isRequired: true,
+     choices: [
+      {
+       value: "NM1",
+       text: "NM1"
+      },
+      {
+       value: "NM2",
+       text: "NM2"
+      },
+      {
+       value: "NM3",
+       text: "NM3"
+      }
+     ]
+    }
+   ],
+   title: "Basic mother details"
+  },
+  {
+   name: "page3",
+   questions: [
+    {
+     type: "text",
+     isRequired: true,
+     name: "no_of_babies",
+     title: "Number of babies",
+     validators: [
+      {
+       type: "numeric",
+       maxValue: "50",
+       minValue: "1"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "no_of_lbws",
+     title: "No of  low birth weight babies",
+     validators: [
+      {
+       type: "numeric",
+       maxValue: "10",
+       minValue: "0"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "no_below_2500",
+     title: "Number < 2500 gm",
+     validators: [
+      {
+       type: "numeric",
+       maxValue: "10",
+       minValue: "0"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "no_below_2000",
+     title: "Number< 2000 gm",
+     validators: [
+      {
+       type: "numeric",
+       maxValue: "10",
+       minValue: "0"
+      }
+     ]
+    }
+   ],
+   title: "Delivery Info"
+  }
+ ]
+}
+
+var babysurvey={
+ completeText: "Complete",
+ completedHtml: "Completed !",
+ pages: [
+  {
+   name: "page2",
+   questions: [
+    {
+     type: "text",
+     isRequired: true,
+     name: "mother_name",
+     title: "Mothers name?",
+     validators: [
+      {
+       type: "text",
+       minLength: "3"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "husband_name",
+     title: "Husband's name",
+     validators: [
+      {
+       type: "text",
+       minLength: "3"
+      }
+     ]
+    }
+   ],
+   title: "Family details"
+  },
+  {
+   name: "page3",
+   questions: [
+    {
+     type: "text",
+     isRequired: true,
+     name: "dob",
+     title: "Date Of birth",
+     validators: [
+      {
+       type: "regex",
+       regex: "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$",
+       text: "Please enter the date in dd/mm/yyyy format"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "time_of_birth",
+     title: "Time of birth",
+     validators: [
+      {
+       type: "regex",
+       regex: "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+       text: "Please enter in time hh:ss format"
+      }
+     ]
+    },
+    {
+     type: "text",
+     isRequired: true,
+     name: "birth_weight",
+     title: "Birth weight",
+     validators: [
+      {
+       type: "numeric"
+      }
+     ]
+    },
+    {
+     type: "dropdown",
+     name: "sex",
+     title: "Sex",
+     choices: [
+      {
+       value: "1",
+       text: "Male"
+      },
+      {
+       value: "2",
+       text: "Female"
+      },
+      {
+       value: "3",
+       text: "Other"
+      }
+     ]
+    },
+    {
+     type: "dropdown",
+     name: "baby_status",
+     title: "How is the baby?",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "Well"
+      },
+      {
+       value: "2",
+       text: "Sick"
+      },
+      {
+       value: "3",
+       text: "Died"
+      }
+     ]
+    }
+   ],
+   title: "Baby details"
+  },
+  {
+   name: "page4",
+   questions: [
+    {
+     type: "dropdown",
+     name: "community_from",
+     title: "Coming From",
+     isRequired: true,
+     hasOther: true,
+     choices: [
+      {
+       value: "100",
+       text: "Village1"
+      },
+      {
+       value: "101",
+       text: "Village2"
+      },
+      {
+       value: "102",
+       text: "Village3"
+      }
+     ]
+    },
+    {
+     type: "dropdown",
+     name: "community_t0",
+     title: "Going To",
+     isRequired: true,
+     hasOther: true,
+     choices: [
+      {
+       value: "100",
+       text: "Village1"
+      },
+      {
+       value: "101",
+       text: "Village2"
+      },
+      {
+       value: "102",
+       text: "Village3"
+      }
+     ]
+    }
+   ],
+   title: "Community Details"
+  },
+  {
+   name: "page5",
+   questions: [
+    {
+     type: "text",
+     name: "phone1",
+     title: "Phone 1",
+     validators: [
+      {
+       type: "numeric"
+      },
+      {
+       type: "answercount",
+       maxCount: "10",
+       minCount: "9"
+      }
+     ]
+    },
+    {
+     type: "text",
+     name: "phone2",
+     title: "Phone 2",
+     validators: [
+      {
+       type: "numeric"
+      },
+      {
+       type: "answercount",
+       maxCount: "10",
+       minCount: "9"
+      }
+     ]
+    }
+   ],
+   title: "Contact Details"
+  }
+ ],
+ title: "Details of LBW(Continue till you get data for all)"
+};
+ var survey1= new Survey.Survey(listsurvey);
+var survey2=new Survey.Survey(babysurvey);
+
+
+var facilitydata=[];
+var babydata=[];
+var count=0;
+survey1.onComplete.add(function (s) {
+
+alert("The results are:" + JSON.stringify(s.data));
+//survey.sendResult('daa498e6-8bca-4141-9fa1-5a0fe9045294');
+facilitydata=s.data;
+//dispdata();
+FacilityListDiv.innerHTML=" "+s.data.no_of_lbws;
+survey1.sendResult('9199261f-037b-46d4-ab4a-6e5535da52de');
+startSurvey(survey2);
+
+ });
+
+survey2.onComplete.add(function (s) {
+
+alert("The results are:" + JSON.stringify(s.data))+" "+count;
+//survey.sendResult('daa498e6-8bca-4141-9fa1-5a0fe9045294');
+babydata=s.data;
+//dispdata();
+count++;
+BabyDiv.innerHTML=""+count;
+survey2.sendResult('319d06e2-4288-4528-b8c1-31c83b741749');
+if(count<facilitydata.no_of_lbws)
+startSurvey(survey2);
+
+
+
+ });
+
+function startSurvey(survey)
+{
+survey.clear();
+
+survey.render("mySurveyJSName");
+
+}
+function dispdata()
+{
+var str="<UL>";
+for(var i=0; i< data.length;i++)
+{
+str+="<LI>"+data[i].mother_name+" LBWS:"+data[i].no_of_lbws;
+}
+str+="</UL>";
+Mothers.innerHTML=str;
+}
+
+startSurvey(survey1);
+var data=[];
+</script>
+

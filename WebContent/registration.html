@@ -1,0 +1,34 @@
+<head>
+<link href="style.css" rel="stylesheet"/><!--script src="https://fb.me/react-0.14.8.js"></script-->
+
+<!--  script src= "https://fb.me/react-dom-0.14.8.js"></script-->
+<script src= "react.js"></script>
+<script src= "react-dom.js"></script>
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script-->
+<script src="browser.min.js"></script>
+<script src="survey.react.bootstrap.min.js"></script>
+</head>
+<body style="padding-top:10px">
+<div id= "mySurveyJSName" ></div>
+<script>
+function submitPayment()
+{
+alert(JSON.strinigify(survey.data));
+
+}
+</script>
+<script type="text/babel">
+
+var surveyJson = {completedHtml: "Completed !<br><a href='#' onclick="submitPayment()">Click here to proceed to payment </a>",pages:[{name:"page1",questions:[{type:"text",name:"name",title:"Name",isRequired:true},{type:"dropdown",name:"gender",title:"Gender",isRequired:true,choices:[{value:"1",text:"Male"},{value:"2",text:"Female"}]},{type:"text",name:"designation",title:"Designation",isRequired:true},{type:"text",name:"dept",title:"Department",isRequired:true},{type:"text",name:"institution",title:"Institution",isRequired:true},{type:"text",name:"mc_reg_no",title:"Medical Council Registration no",isRequired:true},{type:"dropdown",name:"medical_council",title:"Name of the state medical council ",isRequired:true,choices:[{value:1,text:"Andhra Pradesh"},{value:2,text:"Arunachal Pradesh"},{value:3,text:"Assam"},{value:4,text:"Bihar"},{value:5,text:"Chattisgarh"},{value:6,text:"Delhi"},{value:7,text:"Goa"},{value:8,text:"Gujarat"},{value:9,text:"Haryana"},{value:10,text:"Himachal Pradesh"},{value:11,text:"Jammu & Kashmir"},{value:12,text:"Jharkhand"},{value:13,text:"Karnataka"},{value:14,text:"Kerala"},{value:15,text:"Madhya Pradesh"},{value:16,text:"Maharashtra"},{value:17,text:"Manipur"},{value:18,text:"Mizoram"},{value:19,text:"Nagaland"},{value:20,text:"Orissa"},{value:21,text:"Punjab"},{value:22,text:"Rajasthan"},{value:23,text:"Sikkim"},{value:24,text:"Tamil Nadu"},{value:25,text:"Telangana"},{value:26,text:"Tripura"},{value:27,text:"Uttar Pradesh"},{value:28,text:"Uttarakhand"},{value:29,text:"West Bengal"}]},{type:"text",name:"email",title:"Email",isRequired:true,validators:[{type:"email"}]},{type:"multipletext",name:"phone",title:"Phone No",isRequired:true,items:[{name:"mobile",title:"Mobile"},{name:"landline",title:"Land line"}]},{type:"comment",name:"address",title:"Address",isRequired:true}]}],title:"e-MCCD registration form"}
+
+var surveySendResult = function (s) {
+survey.sendResult('e68263ae-ba6c-4a99-8317-68a0ccec9696');
+
+ };
+ReactDOM.render(
+<ReactSurvey json={surveyJson} onComplete={surveySendResult} />, 
+ document.getElementById("mySurveyJSName"));
+
+</script>
+
+</body>
